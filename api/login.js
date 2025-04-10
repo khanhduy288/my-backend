@@ -1,8 +1,7 @@
+const fs = require("fs");
+const path = require("path");
 
-import fs from "fs";
-import path from "path";
-
-export default function handler(req, res) {
+module.exports = (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
@@ -31,4 +30,4 @@ export default function handler(req, res) {
       .status(401)
       .json({ status: false, message: "Sai tên đăng nhập hoặc mật khẩu" });
   }
-}   
+};
