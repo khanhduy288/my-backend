@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/login.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/login.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/login",
-      "methods": ["POST"],
-      "dest": "/api/login.js"
+      "dest": "api/login.js"
     }
   ]
 }
