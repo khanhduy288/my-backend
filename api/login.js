@@ -5,10 +5,10 @@ module.exports = (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
-// trigger redeploy
+
   const { userName, password } = req.body;
 
-  const filePath = path.join(process.cwd(), "users.json");
+  const filePath = path.join(__dirname, "../users.json"); // sửa lại đường dẫn
   const users = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
   const user = users.find(
